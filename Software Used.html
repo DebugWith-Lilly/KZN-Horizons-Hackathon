@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Software Used | CtrlAltDefeat</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            /* Gradient now covers the full viewport height */
+            min-height: 100vh; 
+            background: radial-gradient(circle at center, #2e264a 0%, #1a152e 100%);
+            color: white;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* NAVIGATION BAR */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 10%;
+            background: rgba(43, 37, 71, 0.4);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            box-shadow: 0 4px 30px rgba(121, 102, 255, 0.2);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: fixed; 
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 600;
+            color: #ffffff;
+            text-decoration: none;
+            letter-spacing: 1px;
+            text-shadow: 0 0 10px rgba(121, 102, 255, 0.5);
+        }
+
+        .navbar ul {
+            display: flex;
+            list-style: none;
+            gap: 35px;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 15px;
+            font-weight: 400;
+            transition: all 0.3s ease;
+        }
+
+        .navbar ul li a:hover {
+            color: #a695ff;
+            text-shadow: 0 0 15px rgba(121, 102, 255, 0.8);
+        }
+
+        /* MAIN CONTENT AREA */
+        main {
+            flex: 1; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 140px 20px 60px 20px; /* Adjusted padding to look better without the white bar */
+        }
+
+        .box {
+            background: rgba(43, 37, 71, 0.6);
+            backdrop-filter: blur(12px);
+            color: #ffffff;
+            padding: 3rem 2.5rem;     
+            border-radius: 20px;
+            width: 100%;
+            max-width: 900px;
+            text-align: left;
+            box-shadow: 0 0 40px rgba(121, 102, 255, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .box h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            background: linear-gradient(to right, #ffffff, #a695ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .box h2 {
+            font-size: 1.8rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: #a695ff;
+        }
+
+        .box p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 1rem;
+        }
+
+        .box ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 1.5rem;
+        }
+
+        .box ul li {
+            font-size: 1.1rem;
+            margin: 0.8rem 0;
+            color: #ffffff;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            text-shadow: 0 0 8px rgba(166, 149, 255, 0.4);
+        }
+
+        .box ul li::before {
+            content: "➔"; 
+            color: #a695ff;
+            font-size: 1.2rem;
+            text-shadow: 0 0 15px #a695ff;
+            flex-shrink: 0;
+        }
+
+        /* White section removed */
+    </style>
+    <link rel="icon" href="imagesicon/glasses.png">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="logo">CtrlAltDefeat</a> 
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="About Us.html">About Us</a></li>
+            <li><a href="Software Used.html">Software Used</a></li>
+            <li><a href="Login.html">Login</a></li>
+            <li><a href="Solution.html">Solution</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div class="box">
+            <h1>Software & Tools Used</h1>
+            <p>For this project, we used a combination of tools and technologies to design, build, and test our website.</p>
+
+            <h2>Frontend Development</h2>
+            <p>We used HTML, CSS, and a bit of JavaScript to build the structure, design, and interactive features of our website and python.</p>
+            <ul>
+                <li>HTML was used to create the layout and content of each page.</li>
+                <li>CSS was used to style the website, including colours, layout, and effects such as glowing inputs.</li>
+                <li>JavaScript was used to add movement and animation, including the walking character on the screen.</li>
+                <li>Linux was used for python and Windows was used for the rest of the project</li>
+            </ul>
+
+            <h2>Development Tools</h2>
+            <ul>
+                <li><strong>Visual Studio Code:</strong> Our main coding environment which allowed us to write, edit, and organise our code efficiently.</li>
+                <li><strong>Web Browsers:</strong> Tools like Google Chrome to test and view how our website looks and behaves in real time.</li>
+            </ul>
+
+            <h2>Design & Assets</h2>
+            <p>For visuals and design elements, we created and edited images for our animated character. These images were used to create a walking animation by switching between frames.</p>
+            <p>We also focused on choosing colours, layouts, and simple design elements to make the website look clean and user-friendly.</p>
+
+            <h2>Learning Resources</h2>
+            <p>We used different online resources to help us with this project:</p>
+            <ul>
+                <li><strong>YouTube & Google:</strong> For step-by-step tutorials and finding answers when we got stuck.</li>
+                <li><strong>AI Tools:</strong> To help explain code and generate ideas. While we don’t understand everything completely yet, these tools helped us learn and make progress.</li>
+                <li><strong>Reddit:</strong> To see how other people solved similar problems and to learn from their experiences.</li>
+            </ul>
+        </div>
+    </main>
