@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | CtrlAltDefeat</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: radial-gradient(circle at center, #2e264a 0%, #1a152e 100%); /* //dhia */
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+            color: white;
+        }
+
+        /* NAVIGATION BAR */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 10%;
+            background: rgba(43, 37, 71, 0.4); /* //dhia */
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            box-shadow: 0 4px 30px rgba(121, 102, 255, 0.2); /* //dhia */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: fixed; 
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 600;
+            color: #ffffff;
+            text-decoration: none;
+            letter-spacing: 1px;
+            text-shadow: 0 0 10px rgba(121, 102, 255, 0.5); /* //dhia */
+        }
+
+        .navbar ul {
+            display: flex;
+            list-style: none;
+            gap: 35px;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 15px;
+            font-weight: 400;
+            transition: all 0.3s ease;
+        }
+
+        .navbar ul li a:hover {
+            color: #a695ff; /* //dhia */
+            text-shadow: 0 0 15px rgba(121, 102, 255, 0.8); /* //dhia */
+        }
+
+        /* LOGIN CONTAINER */
+        .container {
+            margin-top: 120px; 
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .right-panel {
+            background: rgba(43, 37, 71, 0.6); /* //dhia */
+            backdrop-filter: blur(12px);
+            padding: 3rem;
+            border-radius: 20px;
+            width: 100%;
+            max-width: 450px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 40px rgba(121, 102, 255, 0.15); /* //dhia */
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            background: linear-gradient(to right, #ffffff, #a695ff); /* //dhia */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .input-box {
+            margin: 25px 0;
+            position: relative;
+        }
+
+        .input-box input {
+            width: 100%;
+            padding: 14px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            color: white;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        /* GLOW ON HOVER/FOCUS */
+        .input-box input:hover, .input-box input:focus {
+            border-color: #a695ff; /* //dhia */
+            box-shadow: 0 0 15px rgba(166, 149, 255, 0.4); /* //dhia */
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .input-box i {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: rgba(255, 255, 255, 0.5);
+            transition: 0.3s;
+        }
+
+        .input-box i:hover {
+            color: #a695ff; /* //dhia */
+            text-shadow: 0 0 10px #a695ff;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 14px;
+            background: #a695ff; /* //dhia */
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            box-shadow: 0 4px 15px rgba(166, 149, 255, 0.2);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 25px rgba(166, 149, 255, 0.6); /* //dhia */
+            background: #b8aaff;
+        }
+
+        .divider {
+            margin: 25px 0;
+            position: relative;
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 0.8rem;
+        }
+
+        .switch span {
+            color: #a695ff; /* //dhia */
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .switch span:hover {
+            text-decoration: underline;
+            text-shadow: 0 0 10px rgba(166, 149, 255, 0.5);
+        }
+    </style>
+    <link rel="icon" href="imagesicon/lockicon.png">
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="logo">CtrlAltDefeat</a> 
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="About Us.html">About Us</a></li>
+            <li><a href="Software Used.html">Software Used</a></li>
+            <li><a href="Login.html">Login</a></li>
+            <li><a href="Solution.html">Solution</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="right-panel">
+            <form class="form login">
+                <h2>Welcome back</h2> 
+                <p style="color: rgba(255,255,255,0.6); margin-bottom: 20px;">Please enter your details to sign in.</p>
+
+                <div class="input-box">
+                    <input type="text" placeholder="Email" required> 
+                </div>
+
+                <div class="input-box">
+                    <input type="password" id="password" placeholder="Password" required> 
+                    <i class="fa fa-eye" onclick="togglePassword()"></i> 
+                </div>
+
+                <div class="remember" style="text-align: left; margin-bottom: 25px; font-size: 0.9rem; color: rgba(255,255,255,0.7);"> 
+                    <input type="checkbox"> Remember me
+                </div>
+
+                <button type="button" class="btn">Login</button>
+
+                <div class="divider">OR</div>
+
+                <p class="switch" style="font-size: 0.9rem; color: rgba(255,255,255,0.7);">
+                    Don't have an account? <span>Register</span>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <script>
+    function togglePassword() { 
+        let pass = document.getElementById("password");
+        let icon = document.querySelector(".input-box i");
+        if (pass.type === "password") {
+            pass.type = "text";
+            icon.classList.replace("fa-eye", "fa-eye-slash");
+        } else {
+            pass.type = "password";
+            icon.classList.replace("fa-eye-slash", "fa-eye");
+        }
+    }
+    </script>
+
+</body>
+</html>
