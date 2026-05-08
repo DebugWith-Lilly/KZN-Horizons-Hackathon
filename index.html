@@ -1,1 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CtrlAltDefeat</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    height: 100vh;
+    background: radial-gradient(circle at center, #2e264a 0%, #1a152e 100%);
+    color: white;
+    overflow: hidden;
+}
+
+/* NAVBAR */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 10%;
+    background: rgba(43, 37, 71, 0.4);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 4px 30px rgba(121, 102, 255, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 600;
+    color: white;
+    text-decoration: none;
+    letter-spacing: 1px;
+    text-shadow: 0 0 10px rgba(121, 102, 255, 0.5);
+}
+
+/* typing cursor */
+#typingLogo {
+    border-right: 2px solid white;
+    padding-right: 5px;
+    white-space: nowrap;
+}
+
+/* nav links */
+.navbar ul {
+    display: flex;
+    list-style: none;
+    gap: 35px;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.navbar ul li a:hover {
+    color: #a695ff;
+    text-shadow: 0 0 15px rgba(121, 102, 255, 0.8);
+}
+</style>
+
+<link rel="icon" href="imagesicon/icon.png">
+</head>
+
+<body style="margin:0; overflow:hidden;">
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <a href="#" class="logo"><span id="typingLogo"></span></a>
+
+    <ul>
+        <li><a href="About Us.html">About Us</a></li>
+        <li><a href="Software Used.html">Software Used</a></li>
+        <li><a href="Login.html">Login</a></li>
+        <li><a href="Solution.html">Solution</a></li>
+    </ul>
+</nav>
+
+<!-- ANIMATIONS -->
+<img id="avatar1" src="image/walk1.png" width="150"
+style="position:absolute; bottom:20px; left:0px;">
+
+<img id="avatar2" src="image/walk1.png" width="150"
+style="position:absolute; bottom:20px; left:-200px;">
+
+<img id="blinker" src="image/stand1.png" width="150"
+style="position:absolute; bottom:20px; right:20px;">
+
+<script>
+window.onload = function () {
+
+    /* WALK ANIMATION */
+    const walkFrames = [
+        "favicon/image/walk1.png",
+        "favicon/image/walk2.png",
+        "favicon/image/walk4.png",
+        "favicon/image/walk5.png",
+        "favicon/image/walk6.png",
+        "favicon/image/walk7.png"
+    ];
+
+    const lookFrames = [
+        "favicon/image/stand1.png",
+        "favicon/image/stand2.png"
+    ];
+
+    const avatar1 = document.getElementById("avatar1");
+    const avatar2 = document.getElementById("avatar2");
+    const blinker = document.getElementById("blinker");
+
+    let walkIndex = 0;
+    let lookIndex = 0;
+
+    let x1 = window.innerWidth - 150;
+    let x2 = window.innerWidth - 350;
+
+    let speed = 4.5;
+    let direction = -1;
+
+    function loop() {
+
+        avatar1.src = walkFrames[walkIndex];
+        avatar2.src = walkFrames[walkIndex];
+
+        walkIndex = (walkIndex + 1) % walkFrames.length;
+
+        x1 += speed * direction;
+        x2 += speed * direction;
+
+        avatar1.style.left = x1 + "px";
+        avatar2.style.left = x2 + "px";
+
+        let rightEdge = window.innerWidth - 150;
+
+        if (x1 <= 0) {
+            direction = 1;
+            avatar1.style.transform = "scaleX(-1)";
+            avatar2.style.transform = "scaleX(-1)";
+        }
+
+        if (x1 >= rightEdge) {
+            direction = -1;
+            avatar1.style.transform = "scaleX(1)";
+            avatar2.style.transform = "scaleX(1)";
+        }
+
+        lookIndex++;
+
+        if (lookIndex % 60 < 30) {
+            blinker.src = lookFrames[0];
+        } else {
+            blinker.src = lookFrames[1];
+        }
+
+        setTimeout(loop, 200);
+    }
+
+    loop();
+
+    /* TYPING EFFECT (continuous loop) */
+    const text = "CtrlAltDefeat";
+    const typingElement = document.getElementById("typingLogo");
+
+    let i = 0;
+    let deleting = false;
+
+    function typeLoop() {
+
+        if (!deleting) {
+            typingElement.innerHTML += text.charAt(i);
+            i++;
+
+            if (i === text.length) {
+                deleting = true;
+                setTimeout(typeLoop, 1000);
+                return;
+            }
+        } else {
+            typingElement.innerHTML = text.substring(0, i);
+            i--;
+
+            if (i === 0) {
+                deleting = false;
+            }
+        }
+
+        setTimeout(typeLoop, deleting ? 80 : 120);
+    }
+
+    typeLoop();
+};
+</script>
+
+</body>
+</html>
