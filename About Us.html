@@ -87,7 +87,7 @@
             padding: 3rem 2.5rem;     
             border-radius: 20px;
             width: 100%;
-            max-width: 900px;
+            max-width: 1100px;
             text-align: center;
             box-shadow: 0 0 40px rgba(121, 102, 255, 0.25);
             border: 1px solid rgba(255, 255, 255, 0.1);
@@ -103,45 +103,92 @@
         h1 { font-size: 3rem; }
         h2 { font-size: 2rem; margin-top: 2rem; }
 
-        .content-section {
-            margin-bottom: 2rem;
-            text-align: left;
+        /* GLOWING TEAM CARDS */
+        .team-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 25px;
+            margin-top: 2rem;
+            perspective: 1000px;
         }
 
-        p {
+        .member-card {
+            width: 100%;
+            height: 320px;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+            cursor: pointer;
+            border-radius: 15px;
+        }
+
+        /* Base Glow Effect */
+        .member-card {
+            box-shadow: 0 0 15px rgba(166, 149, 255, 0.2);
+        }
+
+        /* Hover & Flipped Glow Effect */
+        .member-card:hover, .member-card.flipped {
+            box-shadow: 0 0 30px rgba(166, 149, 255, 0.6), 0 0 10px rgba(255, 255, 255, 0.2);
+        }
+
+        .member-card.flipped {
+            transform: rotateY(180deg);
+        }
+
+        .card-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 15px;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid rgba(166, 149, 255, 0.3); /* Glowing border */
+        }
+
+        .card-front {
+            background: rgba(43, 37, 71, 0.8);
+            z-index: 2;
+        }
+
+        .card-back {
+            background: rgba(166, 149, 255, 0.25);
+            transform: rotateY(180deg);
+            text-align: center;
+            font-style: italic;
+            backdrop-filter: blur(5px);
+        }
+
+        .member-card h3 {
+            color: #ffffff;
+            text-shadow: 0 0 10px rgba(166, 149, 255, 0.8);
+            margin-bottom: 10px;
+        }
+
+        .tap-hint {
+            margin-top: 20px;
+            font-size: 0.8rem;
+            color: #a695ff;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            animation: pulseGlow 2s infinite;
+        }
+
+        @keyframes pulseGlow {
+            0% { opacity: 0.4; }
+            50% { opacity: 1; text-shadow: 0 0 10px #a695ff; }
+            100% { opacity: 0.4; }
+        }
+
+        .content-section p {
             font-size: 1.1rem;
             line-height: 1.8;
             color: rgba(255, 255, 255, 0.8);
             margin-bottom: 1rem;
-        }
-
-        .team-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 1rem;
-        }
-
-        .member-card {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 20px;
-            border-radius: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            text-align: center;
-        }
-
-        .member-card h3 {
-            color: #a695ff;
-            margin-bottom: 5px;
-        }
-
-        .quote-box {
-            font-style: italic;
-            background: rgba(166, 149, 255, 0.1);
-            padding: 20px;
-            border-left: 4px solid #a695ff;
-            border-radius: 0 10px 10px 0;
-            margin-top: 20px;
             text-align: left;
         }
 
@@ -168,81 +215,69 @@
             
             <div class="content-section">
                 <p>
-                    We are a group of Eduvos students studying Information Systems. We are all at different stages, 
-                    with some of us doing degrees and others doing a Higher Certificate. Even though we are at 
-                    different levels, we all enjoy working with technology and learning new things.
-                </p>
-                <p>
-                    This project gave us a chance to work together and try out what we’ve been learning. 
-                    We are still beginners, but we are learning as we go and improving step by step. 
-                    This project helped us gain more experience and confidence.
+                    We are a group of Eduvos students studying Information Systems. Tap on any team member's card to read their personal notes and see the magic happen!
                 </p>
             </div>
 
             <h2>Our Team</h2>
             <div class="team-container">
-                <div class="member-card">
-                    <h3>Ntombizonke Lilly Nkosi</h3>
-                    <p>Age: 19 (Turning 20 in Nov)<br>BSc IT (Software Engineering)<br>Second Year</p>
+                
+                <!-- Lilly -->
+                <div class="member-card" onclick="this.classList.toggle('flipped')">
+                    <div class="card-face card-front">
+                        <h3>Ntombizonke Lilly Nkosi</h3>
+                        <p>BSc IT (Software Engineering)<br>Second Year</p>
+                        <p class="tap-hint">Click to flip</p>
+                    </div>
+                    <div class="card-face card-back">
+                        <p>"I'm a 2nd year software engineering student, just figuring things out as I go and doing my best to grow with every step."</p>
+                    </div>
                 </div>
-                <div class="member-card">
-                    <h3>Dhiajil Deonarain</h3>
-                    <p>Age: 20<br>BSc IT (Software Engineering)<br>Second Year</p>
+
+                <!-- Dhiajil -->
+                <div class="member-card" onclick="this.classList.toggle('flipped')">
+                    <div class="card-face card-front">
+                        <h3>Dhiajil Deonarain</h3>
+                        <p>BSc IT (Software Engineering)<br>Second Year</p>
+                        <p class="tap-hint">Click to flip</p>
+                    </div>
+                    <div class="card-face card-back">
+                        <p>"I am a second-year student, and I am still learning and improving every day. 'Never give up' is my motto."</p>
+                    </div>
                 </div>
-                <div class="member-card">
-                    <h3>Ntombikayise Gumede</h3>
-                    <p>Age: 19<br>HC in Cybersecurity<br>First Year</p>
+
+                <!-- Ntombikayise -->
+                <div class="member-card" onclick="this.classList.toggle('flipped')">
+                    <div class="card-face card-front">
+                        <h3>Ntombikayise Gumede</h3>
+                        <p>HC in Cybersecurity<br>First Year</p>
+                        <p class="tap-hint">Click to flip</p>
+                    </div>
+                    <div class="card-face card-back">
+                        <p>"Hi… this was my first time coding properly. I didn’t understand everything, but I tried my best and learned a lot."</p>
+                    </div>
                 </div>
-                <div class="member-card">
-                    <h3>Kevon Félix Ernesto Chavane</h3>
-                    <p>Age: 19<br>Pre-degree Foundation (IT)<br>First Year</p>
+
+                <!-- Kevon -->
+                <div class="member-card" onclick="this.classList.toggle('flipped')">
+                    <div class="card-face card-front">
+                        <h3>Kevon Félix Ernesto Chavane</h3>
+                        <p>Pre-degree Foundation (IT)<br>First Year</p>
+                        <p class="tap-hint">Click to flip</p>
+                    </div>
+                    <div class="card-face card-back">
+                        <p>"I've been passionate about technology ever since I was a kid... Now I work every day to turn that passion into something real."</p>
+                    </div>
                 </div>
+
             </div>
 
-            <h2>Our Motivation</h2>
+            <h2 style="margin-top: 50px;">Our Motivation</h2>
             <div class="content-section">
                 <p>
-                    We believe that the more we practice, the better we become. Even though we are still learning, 
-                    we are motivated to improve and support each other. This project shows our effort, teamwork, 
+                    We believe that the more we practice, the better we become. This project shows our effort, teamwork, 
                     and how we are growing in the tech field.
                 </p>
-            </div>
-
-            <h2 style="text-align: center;">Our Notes</h2>
-            
-            <div class="quote-box">
-                <p>
-                    "I'm a 2nd year software engineering student, just figuring things out as I go and doing my best to grow with every step."
-                </p>
-                <p style="font-weight: 600; color: #ffffff; margin-bottom: 5px;">
-                    “I can do all things through Christ who strengthens me.” — Philippians 4:13
-                </p>
-                <p style="text-align: right; color: #a695ff; font-weight: 600;">— Lilly</p>
-            </div>
-
-            <div class="quote-box">
-                <p>
-                    "Hi… this was my first time coding properly. There was a lot of AI, Google, and YouTube, 
-                    and a lot of ‘why is this not working’. I didn’t understand everything, but I tried my 
-                    best and learned a lot. Thank you for the opportunity."
-                </p>
-                <p style="text-align: right; color: #a695ff; font-weight: 600;">— Ntombikayise</p>
-            </div>
-
-            <div class="quote-box">
-                <p>
-                    "I am a second-year student, and I am still learning and improving every day. 
-                    Even though I encounter problems and bugs along the way, I use them as an opportunity 
-                    to learn more. 'Never give up' is my motto."
-                </p>
-                <p style="text-align: right; color: #a695ff; font-weight: 600;">— Dhiajil</p>
-            </div>
-
-            <div class="quote-box">
-                <p>
-                    "I've been passionate about technology ever since I was a kid: games, coding, and everything computers had to offer. Now I work every day to turn that passion into something real."
-                </p>
-                <p style="text-align: right; color: #a695ff; font-weight: 600;">— Kevon</p>
             </div>
         </div>
     </main>
