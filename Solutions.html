@@ -1,1 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solution | CtrlAltDefeat</title>
 
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            min-height: 100vh; 
+            background: radial-gradient(circle at center, #2e264a 0%, #1a152e 100%);
+            color: white;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* NAVBAR */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 10%;
+            background: rgba(43, 37, 71, 0.4);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            box-shadow: 0 4px 30px rgba(121, 102, 255, 0.2);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: fixed; 
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 600;
+            color: #ffffff;
+            text-decoration: none;
+            letter-spacing: 1px;
+            text-shadow: 0 0 10px rgba(121, 102, 255, 0.5);
+        }
+
+        .navbar ul {
+            display: flex;
+            list-style: none;
+            gap: 35px;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 15px;
+            font-weight: 400;
+            transition: all 0.3s ease;
+        }
+
+        .navbar ul li a:hover {
+            color: #a695ff;
+            text-shadow: 0 0 15px rgba(121, 102, 255, 0.8);
+        }
+
+        /* MAIN */
+        main {
+            flex: 1; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 140px 20px 60px 20px; 
+        }
+
+        .box {
+            background: rgba(43, 37, 71, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 4rem 3rem;
+            border-radius: 20px;
+            width: 100%;
+            max-width: 800px;
+            text-align: center;
+            box-shadow: 0 0 40px rgba(121, 102, 255, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .box h1 {
+            font-size: 3.5rem;
+            margin-bottom: 2rem;
+            background: linear-gradient(to right, #ffffff, #a695ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        /* BUTTON */
+        .solution-btn {
+            padding: 20px 55px;
+            font-size: 20px;
+            font-weight: 600;
+            text-decoration: none;
+            color: white;
+            background: linear-gradient(135deg, #7966ff, #a695ff);
+            border-radius: 50px;
+            box-shadow: 0 0 25px rgba(121, 102, 255, 0.6);
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+        }
+
+        .solution-btn:hover {
+            transform: scale(1.08) translateY(-5px);
+            box-shadow: 0 0 45px rgba(121, 102, 255, 1);
+            background: linear-gradient(135deg, #8a7aff, #b8aaff);
+        }
+    </style>
+    <link rel="icon" href="imagesicon/glasses.png">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="logo">CtrlAltDefeat</a> 
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="About Us.html">About Us</a></li>
+            <li><a href="Software Used.html">Software Used</a></li>
+            <li><a href="Login.html">Login</a></li>
+            <li><a href="Solution.html">Solution</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div class="box">
+            <h1>Our Solution</h1>
+            <p style="color: rgba(255,255,255,0.7); margin-bottom: 30px; font-size: 1.2rem;">
+                Click below to view the finalized outcome of our project.
+            </p>
+
+            <div class="button-container">
+                <!-- DOWNLOAD BUTTON -->
+                <a href="solution.zip" class="solution-btn" download="Level1/Level1.zip">
+                    View Solution
+                </a>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>
